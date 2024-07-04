@@ -23,6 +23,10 @@ all: build
 
 build: brightness
 
+.PHONY: format
+format:
+	clang-format -i brightness.c
+
 brightness: brightness.x86_64 brightness.arm64
 	/usr/bin/lipo -create -output $@ $^
 
